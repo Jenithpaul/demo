@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff;
+  --foreground: #4e342e;
+  --brand-beige: #f3f0e5;
+  --brand-brown: #b3824a;
+  --brand-walnut: #4e342e;
+  --brand-dark: #1b1b1b;
+  --brand-darkbrown: #3e2723;
+  --brand-sand: #8d6e63;
+  --font-heading: 'Playfair Display', 'Poppins', serif;
+  --font-body: 'Inter', 'Roboto', 'Open Sans', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1b1b1b;
+    --foreground: #f3f0e5;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}

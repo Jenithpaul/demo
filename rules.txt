@@ -1,0 +1,69 @@
+# Project Name: Prime Woods & Ply
+# Goal: Rebuild a business website inspired by https://www.greenelectricals.com, but focused on wood and ply products.
+
+## Design Goals:
+- Clone the layout/structure of https://www.greenelectricals.com
+- Theme should support both **light** (default: white/wood brown) and **dark** (dark walnut/brown) mode
+- Use **Tailwind CSS** for utility-based styling
+- Use **Next.js (App Router)** and **React components**
+- Ensure responsiveness for mobile, tablet, and desktop views
+
+## Brand Identity:
+- Company Name: Prime Woods & Ply
+- Tagline: Crafting Excellence in Wood & Ply
+- Industry: Timber, plywood, carpentry, custom furniture
+- Colors:
+  - Light Mode: `#fff`, `#f3f0e5`, `#b3824a`, `#4e342e`
+  - Dark Mode: `#1b1b1b`, `#3e2723`, `#8d6e63`
+
+## Fonts:
+- Heading: `Playfair Display` or `Poppins`, serif or modern
+- Body: `Inter`, `Roboto`, or `Open Sans`, sans-serif
+
+## Key Sections:
+1. **Header**: Logo + Navigation (Home, Services, About, Contact)
+2. **Hero Section**: Fullscreen background image, brand slogan, CTA
+3. **Services** (Grid Layout):
+   - Plywood Sheets
+   - Custom Carpentry
+   - Interior Wood Panels
+   - Wholesale Timber Supply
+4. **About Section**: Business mission, values, woodworking excellence
+5. **Gallery (Optional)**: Showcase of work (carousel/grid)
+6. **Contact Form**: Name, Email, Message + Google Map (optional)
+7. **Footer**: Contact info, copyright, social links
+
+## Features:
+- Responsive mobile-first layout using Tailwind
+- Dark mode toggle button
+- Use `/public/images` for all visuals (use placeholder if needed)
+- Components should go under `app/components/`
+- Each section should be a React functional component
+
+## File Structure (Expected):
+/wood-and-ply/
+├── app/
+│ ├── components/
+│ │ ├── Header.js
+│ │ ├── Hero.js
+│ │ ├── Services.js
+│ │ ├── About.js
+│ │ ├── Contact.js
+│ ├── page.js
+│ └── layout.js
+├── public/
+│ └── images/
+├── styles/
+│ └── globals.css
+├── tailwind.config.js
+├── postcss.config.js
+
+
+## Rules for GitHub Copilot:
+- Maintain semantic HTML5 structure
+- Write clean, accessible code
+- Use Tailwind classes instead of inline styles
+- Suggest placeholder text or images if none are given
+- Make everything responsive
+- Add `dark:` variants where applicable
+- Default export each React component
