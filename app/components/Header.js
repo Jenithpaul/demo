@@ -403,40 +403,15 @@ export default function Header() {
             >
               <span className="relative z-10">Home</span>
             </Link>
-            {/* Products Dropdown */}
-            <div
-              className="relative group"
-              onMouseEnter={() => setProductsMenuOpen(true)}
-              onMouseLeave={() => setProductsMenuOpen(false)}
+            {/* Products Button (no dropdown) */}
+            <button
+              className="py-4 px-6 font-semibold transition-all duration-300 hover:bg-white/10 backdrop-blur-sm focus:outline-none"
+              onClick={() => router.push("/products")}
+              tabIndex={0}
+              style={{ background: "none", border: "none", cursor: "pointer" }}
             >
-              <button
-                className="py-4 px-6 font-semibold flex items-center transition-all duration-300 hover:bg-white/10 backdrop-blur-sm"
-                aria-haspopup="true"
-                aria-expanded={productsMenuOpen}
-                type="button"
-              >
-                Products
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {productsMenuOpen && (
-                <div className="absolute left-0 mt-1 w-64 bg-white text-brand-walnut rounded shadow-lg z-50 border border-brand-beige">
-                  <ul>
-                    {productCategories.map((cat) => (
-                      <li key={cat}>
-                        <Link
-                          href={`/products?category=${encodeURIComponent(cat)}`}
-                          className="block px-6 py-3 hover:bg-brand-beige hover:text-brand-brown transition-colors"
-                        >
-                          {cat}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+              <span className="relative z-10">Products</span>
+            </button>
             <Link
               href="#about"
               className="relative group py-4 px-6 font-semibold transition-all duration-300 hover:bg-white/10 backdrop-blur-sm"
