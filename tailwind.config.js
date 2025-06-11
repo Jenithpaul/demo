@@ -13,8 +13,6 @@ module.exports = {
           beige: '#f3f0e5',
           brown: '#b3824a',
           walnut: '#4e342e',
-          dark: '#1b1b1b',
-          darkbrown: '#3e2723',
           sand: '#8d6e63',
         },
       },

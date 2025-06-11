@@ -2,7 +2,7 @@ import ImageCarousel from "./ImageCarousel";
 
 export default function Hero() {
   return (
-    <section className="bg-[url('/images/hero-wood.jpg')] bg-cover bg-center text-white py-24 px-4 relative overflow-hidden">
+    <section className="bg-[url('/images/hero-wood.jpg')] bg-cover bg-center text-black py-24 px-4 relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
         <h2 className="text-5xl font-bold mb-4 drop-shadow-lg animate-pulse">Crafting Excellence in Wood & Ply</h2>
         <p className="text-xl mb-6 animate-fade-in">Premium materials, custom solutions, and expert craftsmanship.</p>
