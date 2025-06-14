@@ -4,7 +4,7 @@ import { useAuth } from '../components/auth/AuthContext';
 import { getFirestore, collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 import app from '../backend/firebase.config';
 import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
+import Footer from '../components/sections/Footer';
 
 export default function Profile() {
   const { user } = useAuth();
