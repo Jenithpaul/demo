@@ -1,21 +1,27 @@
 import React from "react";
-import { getFirestore, doc, getDoc, collection, getDocs } from "firebase/firestore";
+import { getFirestore, doc, getDoc, collection, getDocs, DocumentData } from "firebase/firestore";
 import app from "../../backend/firebase.config";
-import Footer from "../../components/sections/Footer";
+import EnhancedAboutFooter from "../../components/sections/Footer";
 import Header from "../../components/header/Header";
 
-export async function getProductData(id) {
-  const db = getFirestore(app);
-  const productsRef = collection(db, "products");
-  const querySnapshot = await getDocs(productsRef);
-
-  // Find the product with the matching ID
-  const product = querySnapshot.docs.find((doc) => doc.data().id === parseInt(id));
-
-  return product ? product.data() : null;
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  images?: string[];
 }
 
-export async function generateStaticParams() {
+function getProductData(id: string): Promise<Product | null> {
+  const db = getFirestore(app);
+  const productsRef = collection(db, "products");
+  return getDocs(productsRef).then(querySnapshot => {
+    const product = querySnapshot.docs.find((doc) => doc.data().id === parseInt(id));
+    return product ? (product.data() as Product) : null;
+  });
+}
+
+export async function generateStaticParams(): Promise<{ id: string }[]> {
   const db = getFirestore(app);
   const productsRef = collection(db, "products");
   const productsSnap = await getDocs(productsRef);
@@ -26,8 +32,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProductDetailPage({ params }) {
-  const { id } = params;
+export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const { id } = resolvedParams;
   const product = await getProductData(id);
 
   if (!product) {
@@ -49,7 +56,7 @@ export default async function ProductDetailPage({ params }) {
           />
         )}
       </main>
-      <Footer />
+      <EnhancedAboutFooter />
     </div>
   );
 }

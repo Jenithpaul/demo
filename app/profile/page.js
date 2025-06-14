@@ -29,6 +29,7 @@ export default function Profile() {
         const ordersData = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
+          // @ts-expect-error: TypeScript may not infer the correct type for createdAt
           createdAt: doc.data().createdAt?.toDate()
         })).sort((a, b) => b.createdAt - a.createdAt);
         
