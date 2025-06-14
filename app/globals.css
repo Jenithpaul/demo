@@ -2,26 +2,27 @@
 
 :root {
   --background: #fff;
-  --foreground: #4e342e;
-  --brand-beige: #f3f0e5;
-  --brand-brown: #b3824a;
-  --brand-walnut: #4e342e;
-  --brand-sand: #8d6e63;
+  --foreground: #000;
+  --brand-beige: #fff;
+  --brand-brown: #000;
+  --brand-walnut: #222;
+  --brand-sand: #eee;
   --font-heading: 'Playfair Display', 'Poppins', serif;
   --font-body: 'Inter', 'Roboto', 'Open Sans', sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #fff;
+  color: #000;
   font-family: var(--font-body);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  color: #000;
 }
 
-/* Animations for hero section */
+/*Animations for hero section */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: none; }
@@ -42,4 +43,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 .animate-pulse {
   animation: pulse 2s infinite;
+}
+
+
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s ease-out forwards;
+  opacity: 0;
 }
