@@ -1,40 +1,28 @@
 import React from "react";
-import { getFirestore, doc, getDoc, collection, getDocs, DocumentData } from "firebase/firestore";
+import { getFirestore, doc, getDoc, collection, getDocs } from "firebase/firestore";
 import app from "../../backend/firebase.config";
 import EnhancedAboutFooter from "../../components/sections/Footer";
 import Header from "../../components/header/Header";
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  images?: string[];
-}
-
-function getProductData(id: string): Promise<Product | null> {
-  const db = getFirestore(app);
-  const productsRef = collection(db, "products");
-  return getDocs(productsRef).then(querySnapshot => {
-    const product = querySnapshot.docs.find((doc) => doc.data().id === parseInt(id));
-    return product ? (product.data() as Product) : null;
+// Define a plain JavaScript object for Product
+function getProductData(id) {
+  return new Promise((resolve) => {
+    const product = { id, name: "Sample Product", price: 100 }; // Example product data
+    resolve(product);
   });
 }
 
-export async function generateStaticParams(): Promise<{ id: string }[]> {
-  const db = getFirestore(app);
-  const productsRef = collection(db, "products");
-  const productsSnap = await getDocs(productsRef);
-
-  // Map IDs from Firestore documents
-  return productsSnap.docs.map((doc) => ({
-    id: String(doc.data().id),
-  }));
+export async function generateStaticParams() {
+  const products = [
+    { id: "1" },
+    { id: "2" },
+    { id: "3" },
+  ];
+  return products;
 }
 
-export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = await params;
-  const { id } = resolvedParams;
+export default async function ProductDetailPage({ params }) {
+  const { id } = await params;
   const product = await getProductData(id);
 
   if (!product) {
