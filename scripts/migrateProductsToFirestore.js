@@ -5,14 +5,7 @@ const { getFirestore, collection, addDoc } = require('firebase/firestore');
 const { products } = require('../app/components/data/products');
 
 // Firebase configuration from your existing firebase.config.js
-const firebaseConfig = {
-  apiKey: "AIzaSyCvcy_H0WmnKLnTPMnl_gcX96IArDjUvG8",
-  authDomain: "wood-ply-5467f.firebaseapp.com",
-  projectId: "wood-ply-5467f",
-  storageBucket: "wood-ply-5467f.firebasestorage.app",
-  messagingSenderId: "11936944340",
-  appId: "1:11936944340:web:d723588893d69d5dfb2b41"
-};
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
